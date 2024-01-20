@@ -1,3 +1,4 @@
+
 //подключение библиотек
 #include <sys/types.h>
 #include <stdlib.h>
@@ -5,6 +6,7 @@
 #include <unistd.h>
 //главная ф-ия программы 
 int main() {
+//объявление пременной
 	uid_t userid;
 	gid_t groupid;
 //системный вызов getuid()
