@@ -14,20 +14,20 @@ int main() {
 	int a=0; // переменная для проверки  процесса родителя и процесаа ребенка
 	result = fork();
 	if (result < 0) {
-		print("ошибка при выполнении fork()\n");
+		printf("ошибка при выполнении fork()\n");
 		exit(-1);
-}
-	else (result ==0) {
+	}
+	else if (result == 0) {
 		a = a+1;
 		procid = getpid(); // получение инд. текущего процесса
 		parentid = getppid(); // получение инд. родительского процесса 
 		printf("инд.процесса: %d, инд. родителя: %d, значение переменной a: %d\n", procid, parentid, a);
-}
+	}
 	else {
 		a = a + 555;	
         	procid = getpid(); // получение инд. текущего процесса
     	        parentid = getppid(); // получение инд. родительского процесса 
-	        printid("инд.процесса: %d, инд. родителя: %d, значение переменной a: %d\n", procid, parentid, a);
+	        printf("инд.процесса: %d, инд. родителя: %d, значение переменной a: %d\n", procid, parentid, a);
 
         }
 	return 0;
