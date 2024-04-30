@@ -6,7 +6,7 @@ int main() {
 //создаем массив из двух элементов для  хранения файловдискрипторов для чтения и записи
 	int fd[2];
 	size_t size;
-	char string[] = "hello world!";
+	char string[] = "hello, world!";
 	char resstring[14];
 	if(pipe(fd) < 0) {
 		printf("не получилось создать pipe()");
