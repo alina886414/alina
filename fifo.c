@@ -9,15 +9,19 @@ int main () {
 	int fd, result;
 	size_t size;
 	char resstring[13];
+//создаем символьный массив, где будет храниться имя fifo
 	char name[]="fifo.fifo";
-	if (mknod(name, S_IFIFO | 0666, 0) < 0) {
+	//после первого запуска программы необходимо закомментировать процесс создания файла fifo 
+/*	if (mknod(name, S_IFIFO | 0666, 0) < 0) {
 		printf("Не удалось создать файл FIFO\n");
 		exit(-1);
 	}
+*/
 	if ((result = fork()) < 0) {
 		printf("Не удалось создать дочерний процесс\n");
 		exit(-1);
 	}
+//процесс-родитель пишет информацию в fifo
 	else if (result > 0) {
 		if((fd = open(name, O_WRONLY)) < 0) {
 			printf("Не удалось открыть файл назапись\n");
@@ -34,6 +38,7 @@ int main () {
 		}
 		printf("Процесс-родитель записал информацию в FIFO и завершил работу\n");
 	}
+//ребенок читает информацию
 	else {
 		if ((fd = open(name, O_RDONLY)) < 0) {
 			printf("Не удалось открыть FIFO для чтения\n");
