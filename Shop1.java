@@ -34,7 +34,7 @@ class Lipstick extends Shop {
         super("Помада", 1000);
     }
 
-    @Override
+    
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
         return super.calculateDiscount(isBirthday, hasCard);
     }
@@ -45,7 +45,7 @@ class FaceCream extends Shop {
         super("Крем для лица", 890);
     }
 
-    @Override
+    
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
         return super.calculateDiscount(isBirthday, hasCard);
     }
@@ -56,7 +56,7 @@ class Perfume extends Shop {
         super("Духи", 4860);
     }
 
-    @Override
+    
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
         return super.calculateDiscount(isBirthday, hasCard);
     }
