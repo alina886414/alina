@@ -87,16 +87,18 @@ public class Shop1 {
         Shop faceCream = new FaceCream();
         Shop perfume = new Perfume();
 
-        System.out.println("Помада:");
-        System.out.println("Цена: " + lipstick.getPrice() + " руб.");
-        System.out.println("Скидка 15%: " + lipstick.calculateDiscount() + " руб.");
+        System.out.print("Введите день рождения (число от 1 до 31): ");
+        int birthday = scanner.nextInt();
 
-        System.out.println("\nКрем для лица:");
-        System.out.println("Цена: " + faceCream.getPrice() + " руб.");
-        System.out.println("Скидка 15%: " + faceCream.calculateDiscount() + " руб.");
+        System.out.print("Есть ли у вас скидочная карта? (true/false): ");
+        boolean hasCard = scanner.nextBoolean();
 
-        System.out.println("\nДухи:");
-        System.out.println("Цена: " + perfume.getPrice() + " руб.");
-        System.out.println("Скидка 15%: " + perfume.calculateDiscount() + " руб.");
+        System.out.println("С учетом всех скидок:");
+        System.out.println(lipstick.getName() + ": " + lipstick.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
+        System.out.println(faceCream.getName() + ": " + faceCream.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
+        System.out.println(perfume.getName() + ": " + perfume.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
+
     }
 }
+
+
