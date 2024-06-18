@@ -1,8 +1,10 @@
 abstract class Shop {
     private String name;
     private double price;
+    private double birthdayDiscount = 0.15;
+    private double cardDiscount = 0.1;
 
- Shop (String name, double price) {
+    public Shop(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -15,8 +17,8 @@ abstract class Shop {
         return price;
     }
 
-    public double calculateDiscount(boolean isBirthday, boolean hasCard);{
-         double discount = 0;
+    public double calculateDiscount(boolean isBirthday, boolean hasCard) {
+        double discount = 0;
         if (isBirthday) {
             discount += birthdayDiscount;
         }
@@ -31,20 +33,10 @@ class Lipstick extends Shop {
     public Lipstick() {
         super("Помада", 1000);
     }
+
+    @Override
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
-        double discount = 0;
-    if (isBirthday) {
-        discount += birthdayDiscount;
-    }
-    if (hasCard) {
-        discount += cardDiscount;
-    }
-    return price - (price * discount);
-    }
-}
-    
-    public double calculateDiscount() {
-        return getPrice() * 0.15;
+        return super.calculateDiscount(isBirthday, hasCard);
     }
 }
 
@@ -52,20 +44,10 @@ class FaceCream extends Shop {
     public FaceCream() {
         super("Крем для лица", 890);
     }
+
+    @Override
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
-        double discount = 0;
-    if (isBirthday) {
-        discount += birthdayDiscount;
-    }
-    if (hasCard) {
-        discount += cardDiscount;
-    }
-    return price - (price * discount);
-    }
-}
-   
-    public double calculateDiscount() {
-        return getPrice() * 0.15;
+        return super.calculateDiscount(isBirthday, hasCard);
     }
 }
 
@@ -73,20 +55,10 @@ class Perfume extends Shop {
     public Perfume() {
         super("Духи", 4860);
     }
+
+    @Override
     public double calculateDiscount(boolean isBirthday, boolean hasCard) {
-        double discount = 0;
-    if (isBirthday) {
-        discount += birthdayDiscount;
-    }
-    if (hasCard) {
-        discount += cardDiscount;
-    }
-    return price - (price * discount);
-    }
-}
-    
-    public double calculateDiscount() {
-        return getPrice() * 0.15;
+        return super.calculateDiscount(isBirthday, hasCard);
     }
 }
 
@@ -100,11 +72,9 @@ public class Shop1 {
         boolean hasCard = true;
 
         System.out.println("С учетом всех скидок:");
-        System.out.println(lipstick.getName() + ": " + lipstick.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
-        System.out.println(faceCream.getName() + ": " + faceCream.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
-        System.out.println(perfume.getName() + ": " + perfume.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
-
+        System.out.println(lipstick.getName() + ": " + lipstick.calculateDiscount(birthday == 15, hasCard) + " рублей");
+        System.out.println(faceCream.getName() + ": " + faceCream.calculateDiscount(birthday == 15, hasCard) + " рублей");
+        System.out.println(perfume.getName() + ": " + perfume.calculateDiscount(birthday == 15, hasCard) + " рублей");
     }
 }
-
 
