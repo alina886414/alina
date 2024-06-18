@@ -22,7 +22,17 @@ class Lipstick extends Shop {
     public Lipstick() {
         super("Помада", 1000);
     }
-
+    public double calculateDiscount(boolean isBirthday, boolean hasCard) {
+        double discount = 0;
+    if (isBirthday) {
+        discount += birthdayDiscount;
+    }
+    if (hasCard) {
+        discount += cardDiscount;
+    }
+    return price - (price * discount);
+    }
+}
     
     public double calculateDiscount() {
         return getPrice() * 0.15;
@@ -33,7 +43,17 @@ class FaceCream extends Shop {
     public FaceCream() {
         super("Крем для лица", 890);
     }
-
+    public double calculateDiscount(boolean isBirthday, boolean hasCard) {
+        double discount = 0;
+    if (isBirthday) {
+        discount += birthdayDiscount;
+    }
+    if (hasCard) {
+        discount += cardDiscount;
+    }
+    return price - (price * discount);
+    }
+}
    
     public double calculateDiscount() {
         return getPrice() * 0.15;
@@ -44,7 +64,17 @@ class Perfume extends Shop {
     public Perfume() {
         super("Духи", 4860);
     }
-
+    public double calculateDiscount(boolean isBirthday, boolean hasCard) {
+        double discount = 0;
+    if (isBirthday) {
+        discount += birthdayDiscount;
+    }
+    if (hasCard) {
+        discount += cardDiscount;
+    }
+    return price - (price * discount);
+    }
+}
     
     public double calculateDiscount() {
         return getPrice() * 0.15;
