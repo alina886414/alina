@@ -15,7 +15,16 @@ abstract class Shop {
         return price;
     }
 
-    public abstract double calculateDiscount(boolean isBirthday, boolean hasCard);
+    public abstract double calculateDiscount(boolean isBirthday, boolean hasCard);{
+         double discount = 0;
+        if (isBirthday) {
+            discount += birthdayDiscount;
+        }
+        if (hasCard) {
+            discount += cardDiscount;
+        }
+        return price * (1 - discount);
+    }
 }
 
 class Lipstick extends Shop {
