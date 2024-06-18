@@ -15,7 +15,7 @@ abstract class Shop {
         return price;
     }
 
-    public abstract double calculateDiscount(boolean isBirthday, boolean hasCard);{
+    public double calculateDiscount(boolean isBirthday, boolean hasCard);{
          double discount = 0;
         if (isBirthday) {
             discount += birthdayDiscount;
@@ -96,11 +96,8 @@ public class Shop1 {
         Shop faceCream = new FaceCream();
         Shop perfume = new Perfume();
 
-        System.out.print("Введите день рождения (число от 1 до 31): ");
-        int birthday = scanner.nextInt();
-
-        System.out.print("Есть ли у вас скидочная карта? (true/false): ");
-        boolean hasCard = scanner.nextBoolean();
+        int birthday = 15;
+        boolean hasCard = true;
 
         System.out.println("С учетом всех скидок:");
         System.out.println(lipstick.getName() + ": " + lipstick.calculateDiscountedPrice(birthday == 15, hasCard) + " рублей");
